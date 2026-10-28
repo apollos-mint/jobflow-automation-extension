@@ -1,0 +1,10 @@
+# Critical Personal Data Protection
+profile_data.js
+*.local.js
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

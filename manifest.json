@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "JobFlow AI - Autonomous LinkedIn Application Assistant (Demo)",
+  "version": "1.0.0",
+  "description": "Autonomous LinkedIn application prototype with heuristic screening answers, deduplication, and daily limits.",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.linkedin.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JobFlow Assistant (Demo)",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/jobs/*"],
+      "js": ["profile_data.example.js", "content_linkedin.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

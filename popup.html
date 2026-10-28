@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFlow AI Auto-Applier</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { width: 360px; background: #07090e; color: #f8fafc; padding: 16px; font-size: 13px; }
+    .header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1e293b; padding-bottom: 12px; margin-bottom: 14px; }
+    .logo { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; color: #ffffff; }
+    .logo span { color: #06b6d4; }
+    .badge { font-size: 10px; font-family: monospace; font-weight: bold; background: rgba(6, 182, 212, 0.15); color: #22d3ee; padding: 2px 8px; rounded: 4px; border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 9999px; }
+    
+    .card { background: rgba(15, 23, 42, 0.8); border: 1px solid #1e293b; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .stat-label { color: #94a3b8; font-size: 12px; }
+    .stat-value { font-weight: 700; font-family: monospace; color: #10b981; font-size: 14px; }
+    .progress-bar-bg { width: 100%; height: 6px; background: #1e293b; border-radius: 9999px; overflow: hidden; margin-top: 4px; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #06b6d4, #10b981); transition: width 0.3s ease; }
+
+    .btn-main { width: 100%; padding: 10px; background: linear-gradient(90deg, #06b6d4, #10b981); color: #020617; font-weight: 800; font-size: 13px; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; margin-bottom: 8px; }
+    .btn-main:hover { opacity: 0.9; }
+    .btn-stop { background: #ef4444 !important; color: white !important; }
+    .btn-link { display: block; text-align: center; font-size: 11px; color: #06b6d4; text-decoration: none; padding: 4px; }
+    .btn-link:hover { text-decoration: underline; }
+
+    .log-box { background: #020617; border: 1px solid #1e293b; border-radius: 8px; padding: 8px; height: 130px; overflow-y: auto; font-family: monospace; font-size: 10px; color: #cbd5e1; line-height: 1.4; }
+    .log-entry { margin-bottom: 4px; border-bottom: 1px dashed #1e293b; padding-bottom: 2px; }
+    .log-success { color: #34d399; }
+    .log-warn { color: #fbbf24; }
+    .log-error { color: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">JOBFLOW <span>AI</span> <span style="font-size: 9px; color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.4); padding: 1px 5px; border-radius: 4px; margin-left: 4px; vertical-align: middle;">DEMO</span></div>
+    <div id="statusBadge" class="badge">READY</div>
+  </div>
+
+  <div class="card">
+    <div class="stat-row">
+      <span class="stat-label">Daily Target (Max 20):</span>
+      <span id="counter" class="stat-value">0 / 20</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div id="progressBar" class="progress-bar-fill"></div>
+    </div>
+    <div style="font-size: 10px; color: #64748b; margin-top: 6px;">
+      🛡️ Smart Deduplication: Active (1 application per company)
+    </div>
+  </div>
+
+  <button id="actionBtn" class="btn-main">START AUTO-APPLY</button>
+  <a id="openSearchLink" href="#" class="btn-link">🔗 Open LinkedIn Easy Apply (Continuous Improvement)</a>
+
+  <div style="font-size: 11px; font-weight: bold; color: #94a3b8; margin: 10px 0 4px 0;">Live Activity Log:</div>
+  <div id="logBox" class="log-box">
+    <div class="log-entry">Waiting for launch. Navigate to LinkedIn Jobs search and click START.</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
