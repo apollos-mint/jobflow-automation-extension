@@ -65,7 +65,7 @@ flowchart TD
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/desousaejai/jobflow-automation-extension.git
+git clone https://github.com/apollos-mint/jobflow-automation-extension.git
 cd jobflow-automation-extension
 ```
 
